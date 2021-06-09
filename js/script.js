@@ -3,6 +3,23 @@
 // per capire se la parola inserita è palindroma
 
 
+var askPrompt = prompt('Which is a string?');
+var outputElement=document.getElementById('start');
+
+var wordReverse = checkPalindrome(askPrompt);
+
+function checkPalindrome (stringa){
+    var str = stringa.split('').reverse().join('');
+    return str;
+}
+
+if(askPrompt == wordReverse){
+    outputElement.innerHTML += 'The string  which has been typed  by You is PALINDROME';
+}
+else {
+    outputElement.innerHTML += 'The string which has been typed by You is NOT PALINDROME';
+}
+  
 // Pari e Dispari
 // L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
 // Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
@@ -10,37 +27,17 @@
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Infine, dichiariamo chi ha vinto.
 
-// Consigli del giorno
-// Scriviamo sempre in italiano i passaggi che vogliamo fare
-// Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
 
+//var askPariOrDispari = prompt('Pari o dispari');
+// var  askNumUser = parseInt(prompt('Inserire un numero da 1 a 5'));
+// var max = 5;
+// var  min =1;
+// function getRandomNum (numRandom){
+//      var askNumPc = Math.floor(Math.random()*max).
+//      return result;
+// }
+// outputElement.innerHTML+='Il numero di Pc è' + ' '+result;
 
-
-var outputElement=document.getElementById('start');
-
-function checkPalindrome (str){
-    return str == str.split("").reverse().join("");
-}
-
-if(checkPalindrome(str) == askPrompt){
- outputElement.innerHTML = 'The word which has been typed  by You is Palindrome';
-}
-else {
-    outputElement.innerHTML = 'The word which has been typed is Not Palindrome';
-}
-  var askPrompt = prompt('Inserire una parola');
-
-
-// function isPalindrome(str){
-	
-// 	if (str.length <= 1){
-//       outputElement.innerHTML= 'This is a palindrome';
-//     } 
-// 	else if (str.charAt(0) != str.slice(-1)){
-//     outputElement.innerHTML += 'This is not a palindrome';
-//     }
-// 	return isPalindrome(str.substring(1,str.length-1));
-// 	};
 
 
 
