@@ -12,7 +12,6 @@ function checkPalindrome (stringa){
     var str = stringa.split('').reverse().join('');
     return str;
 }
-
 if(askPrompt == wordReverse){
     outputElement.innerHTML += 'The string  which has been typed  by You is PALINDROME';
 }
@@ -28,17 +27,64 @@ else {
 // Infine, dichiariamo chi ha vinto.
 
 
-//var askPariOrDispari = prompt('Pari o dispari');
-// var  askNumUser = parseInt(prompt('Inserire un numero da 1 a 5'));
-// var max = 5;
-// var  min =1;
-// function getRandomNum (numRandom){
-//      var askNumPc = Math.floor(Math.random()*max).
-//      return result;
-// }
-// outputElement.innerHTML+='Il numero di Pc è' + ' '+result;
 
 
+
+function getRandomNum (numRandom){
+     var askNumPc = Math.floor(Math.random()*(max-min+1))-min;
+     return result;
+}
+outputElement.innerHTML+='Il numero di Pc è' + ' '+result;
+
+function isPari (num) {
+    if (num% 2===0){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+var askPariOrDispari = prompt('Pari o dispari').toLowerCase();
+// e se l'utente inserisce un'altra parola? tipo pippo? che succede? PROBLEMA
+
+
+while ( askPariOrDispari !== 'pari'&& askPariOrDispari !== 'dispari'){
+    alert('Attenzione! devi inserire o pari o dispari');
+    var askPariOrDispari = prompt('Pari o dispari').toLowerCase();
+}
+ var  askNumUser = parseInt(prompt('Inserire un numero da 1 a 5'));
+
+ while ( isNaN(askNumUser)|| askNumber < 1 || askNumber > 5) {
+     alert ('Attenzione! Devi inserire un numero da 1 a 5 ')
+     askNumUser = parseInt(prompt('Inserire un numero da 1 a 5'));
+ }
+
+var numberComputer = getRandomNum(1,5);
+var total = askNumber + numberComputer;
+console.log ('Il totale è:', total);
+
+// verifichiamo che la somma sia pari o dispari,  => questa è una funzione
+// confrontandoci con quanto scelto dall'utente => questo lo facciamo "esternamente"
+
+
+// quando vincerà l'utente?
+// se il numero è pari e l'utente ha scelto pari ha vinto
+// se il numero è dispari e l'utente ha scelto dispari ha vinto
+// altrimenti ha perso.
+
+// scriviamolo meglio.
+// se la funzione ritorna true e l'utente ha scelto pari ha vinto
+// se la funzione ritorna false e l'utente ha scelto dispari ha vinto
+// altrimenti ha perso => vince il computer.
+
+// scriviamolo in codice:
+
+if ((isPari(total) === true && askPariOrDispari === 'pari')
+    || (isPari(total) === false && askPariOrDispari === 'dispari')) {
+   outputElement.innerHTML += "Hai vinto";
+} else {
+   outputElement.innerHTML += "Hai perso / Ha vinto il computer";
+}
 
 
 
